@@ -72,13 +72,24 @@
         const eventSource = new EventSource('/users');
 
         eventSource.onmessage = function(event) {
-            //            console.log('Data received:', event.data);
             const data = JSON.parse(event.data);
             document.getElementById(data.email).innerText = `💵 $ ${data.balance}`;
             document.getElementById(`tr-${data.email}`).setAttribute('data-bal', data.balance);
-            document.getElementById(data.email).classList.add('animate-pulse bg-teal-100 dark:bg-teal-800 text-teal-900 dark:text-teal-200');
+            document.getElementById(data.email).classList.add(
+                'animate-pulse',
+                'bg-teal-100',
+                'dark:bg-teal-800',
+                'text-teal-900',
+                'dark:text-teal-200'
+            );
             setTimeout(() => {
-                document.getElementById(data.email).classList.remove('animate-pulse bg-teal-100 dark:bg-teal-800 text-teal-900 dark:text-teal-200');
+                document.getElementById(data.email).classList.remove(
+                    'animate-pulse',
+                    'bg-teal-100',
+                    'dark:bg-teal-800',
+                    'text-teal-900',
+                    'dark:text-teal-200'
+                );
             }, 1000);
             sortTable();
         };
