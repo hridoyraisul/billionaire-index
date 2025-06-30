@@ -72,13 +72,12 @@
         const eventSource = new EventSource('/users');
 
         eventSource.onmessage = function(event) {
-            //            console.log('Data received:', event.data);
             const data = JSON.parse(event.data);
             document.getElementById(data.email).innerText = `💵 $ ${data.balance}`;
             document.getElementById(`tr-${data.email}`).setAttribute('data-bal', data.balance);
-            document.getElementById(data.email).classList.add('animate-pulse ');
+            document.getElementById(data.email).classList.add('animate-pulse');
             setTimeout(() => {
-                document.getElementById(data.email).classList.remove('animate-pulse ');
+                document.getElementById(data.email).classList.remove('animate-pulse');
             }, 1000);
             sortTable();
         };
