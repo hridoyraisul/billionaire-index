@@ -76,9 +76,9 @@
             const data = JSON.parse(event.data);
             document.getElementById(data.email).innerText = `💵 $ ${data.balance}`;
             document.getElementById(`tr-${data.email}`).setAttribute('data-bal', data.balance);
-            document.getElementById(data.email).classList.add('animate-pulse relative transition-transform duration-300 ease-in-out');
+            document.getElementById(data.email).classList.add('animate-pulse bg-teal-100 dark:bg-teal-800 text-teal-900 dark:text-teal-200');
             setTimeout(() => {
-                document.getElementById(data.email).classList.remove('animate-pulse relative transition-transform duration-300 ease-in-out');
+                document.getElementById(data.email).classList.remove('animate-pulse bg-teal-100 dark:bg-teal-800 text-teal-900 dark:text-teal-200');
             }, 1000);
             sortTable();
         };
