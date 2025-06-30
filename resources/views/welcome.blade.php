@@ -76,9 +76,9 @@
             const data = JSON.parse(event.data);
             document.getElementById(data.email).innerText = `💵 $ ${data.balance}`;
             document.getElementById(`tr-${data.email}`).setAttribute('data-bal', data.balance);
-            document.getElementById(data.email).classList.add('animate-pulse');
+            document.getElementById(data.email).classList.add('animate-pulse relative transition-transform duration-300 ease-in-out');
             setTimeout(() => {
-                document.getElementById(data.email).classList.remove('animate-pulse');
+                document.getElementById(data.email).classList.remove('animate-pulse relative transition-transform duration-300 ease-in-out');
             }, 1000);
             sortTable();
         };
